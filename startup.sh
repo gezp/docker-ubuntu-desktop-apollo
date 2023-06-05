@@ -12,11 +12,12 @@ if [ ! -f "/docker_config/init_flag" ]; then
     mkdir /home/$USER/.config
     cp -r /docker_config/xfce4 /home/$USER/.config
     chown -R $UID:$GID /home/$USER/.config
-    # create apollo data dir
+    # vgl for user
+    echo "export PATH=/usr/NX/scripts/vgl:\$PATH" >> /home/$USER/.bashrc
+    echo "export VGL_DISPLAY=$VGL_DISPLAY" >> /home/$USER/.bashrc
+    # for apollo
     mkdir -p /opt/apollo/neo/data/log
     chmod -R 777 /opt/apollo/neo/data
-    # update user's .bashrc
-    echo "export PATH=/usr/NX/scripts/vgl:\$PATH" >> /home/$USER/.bashrc
     echo "source /opt/apollo/neo/setup.sh" >> /home/$USER/.bashrc
     # custom init
     bash /docker_config/init.sh
