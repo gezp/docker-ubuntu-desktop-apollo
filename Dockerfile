@@ -22,5 +22,5 @@ RUN apt-get update && \
     apt-get install -y apollo-neo-planning-dev apollo-neo-routing-dev apollo-neo-control-dev &&\
     rm -rf /var/lib/apt/lists/*
 
-# overlay scripts
-COPY startup.sh /docker_config/startup.sh
+# add script env_init.sh 
+COPY env_init.sh /docker_config/env_init.sh
